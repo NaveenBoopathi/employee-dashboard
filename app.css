@@ -1,0 +1,47 @@
+/* Dashboard */
+
+.formSection {
+  width: 25%;
+  margin: 5% auto;
+}
+
+.form-group {
+  padding: 2px 20px;
+}
+
+.name,
+input[type='text'] {
+  display: inline-block;
+  width: 49.5%;
+}
+
+.buttonBlock {
+  display: inline-block;
+  width: 55.5%;
+}
+
+.gridSection {
+  margin: 10% auto;
+}
+
+.panel-title {
+  font-size: 20px;
+  text-align: center;
+}
+
+.head {
+  font-family: 'Proxima Nova', 'Open Sans', sans-serif;
+  height: auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+  display: block;
+  font-size: 2em;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}

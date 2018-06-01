@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Employee Systems</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Angular References-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.10/angular.min.js"></script>
+
+  <!-- Bootstrap References-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- UI Grid References-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.css" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.min.js"></script>
+  <script src="ui-grid/ui-grid.core.min.js"></script>
+
+  <!--Other References-->
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js"></script>
+  <script src="controllers/form.js"></script>
+  <script src="controllers/grid.js"></script>
+
+
+</head>
+
+<body>
+  <h1 class="head">Employee Systems</h1>
+  <div>
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active">
+        <a data-target="#information" aria-controls="information" role="tab" data-toggle="tab">Information</a>
+      </li>
+      <li role="presentation">
+        <a data-target="#details" aria-controls="details" role="tab" data-toggle="tab">Details</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="information">
+        <div ng-controller="formController">
+          <div class="panel panel-default formSection">
+            <div class="panel-heading">
+              <h3 class="panel-title">Sign Up</h3>
+            </div>
+            <div class="panel-body">
+              <form class="form form-horizontal" class="signup-form" ng-submit="submit(user)">
+                <div class="form-group">
+                  <label class="name">First Name</label>
+                  <label class="name">Last Name</label>
+                  <input type="text" class="form-control" ng-model="user.firstName" required ng-focus="show = false">
+                  <input type="text" class="form-control" ng-model="user.lastName" required ng-focus="show = false">
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" ng-model="user.email" required ng-focus="show = false">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" ng-model="user.password" minlength="6" required ng-focus="show = false">
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="number" class="form-control" ng-model="user.phoneNumber" minlength="10" required ng-focus="show = false">
+                </div>
+                <div class="form-group">
+                  <label>Country</label>
+                  <select class="form-control" id="country" ng-model="user.country" required ng-focus="show = false">
+                    <option ng-repeat="x in countries">{{x}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>State</label>
+                  <select class="form-control" id="state" ng-model="user.state" required ng-focus="show = false">
+                    <option ng-repeat="x in states">{{x}}</option>
+                  </select>
+                </div>
+                <div class="buttonBlock form-group">
+                  <button id="signupButton" type="submit" class="btn btn-primary btn-block">Start Now
+                  </button>
+                </div>
+                <div class="buttonBlock form-group">
+                  <button id="resetButton" type="reset" ng-click="clear()" class="btn btn-default btn-block">Clear
+                  </button>
+                </div>
+                <div ng-show="show" style="color:green; text-align:center">Thanks for submitting!</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div role="tabpanel" class="tab-pane" id="details">
+        <div ng-controller="gridController">
+          <div class="container">
+            <div class="panel panel-default gridSection">
+              <div class="panel-heading">
+                <h2 class="panel-title">Employee Details</h2>
+              </div>
+              <div class="panel-body">
+                <div ui-grid="gridOptions"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
